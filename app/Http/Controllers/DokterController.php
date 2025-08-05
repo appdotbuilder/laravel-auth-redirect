@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-
 class DokterController extends Controller
 {
     /**
@@ -19,8 +17,6 @@ class DokterController extends Controller
             abort(403, 'Akses ditolak. Anda tidak memiliki izin untuk mengakses halaman ini.');
         }
 
-        return Inertia::render('dokter/dashboard', [
-            'user' => auth()->user()
-        ]);
+        return view('dokter.dashboard');
     }
 }

@@ -8,10 +8,7 @@ test('admin can access admin dashboard', function () {
     $response = $this->actingAs($admin)->get('/admin');
 
     $response->assertStatus(200);
-    $response->assertInertia(fn ($page) => $page
-        ->component('admin/dashboard')
-        ->has('user')
-    );
+    $response->assertViewIs('admin.dashboard');
 });
 
 test('dokter can access dokter dashboard', function () {
@@ -20,10 +17,7 @@ test('dokter can access dokter dashboard', function () {
     $response = $this->actingAs($dokter)->get('/dokter');
 
     $response->assertStatus(200);
-    $response->assertInertia(fn ($page) => $page
-        ->component('dokter/dashboard')
-        ->has('user')
-    );
+    $response->assertViewIs('dokter.dashboard');
 });
 
 test('resepsionis can access resepsionis dashboard', function () {
@@ -32,10 +26,7 @@ test('resepsionis can access resepsionis dashboard', function () {
     $response = $this->actingAs($resepsionis)->get('/resepsionis');
 
     $response->assertStatus(200);
-    $response->assertInertia(fn ($page) => $page
-        ->component('resepsionis/dashboard')
-        ->has('user')
-    );
+    $response->assertViewIs('resepsionis.dashboard');
 });
 
 test('dokter cannot access admin dashboard', function () {

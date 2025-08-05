@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Inertia\Inertia;
-
 class ResepsionisController extends Controller
 {
     /**
@@ -19,8 +17,6 @@ class ResepsionisController extends Controller
             abort(403, 'Akses ditolak. Anda tidak memiliki izin untuk mengakses halaman ini.');
         }
 
-        return Inertia::render('resepsionis/dashboard', [
-            'user' => auth()->user()
-        ]);
+        return view('resepsionis.dashboard');
     }
 }
